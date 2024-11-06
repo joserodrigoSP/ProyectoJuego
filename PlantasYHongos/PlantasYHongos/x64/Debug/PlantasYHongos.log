@@ -1,0 +1,6 @@
+﻿  Juego.cpp
+  Jugador.cpp
+C:\Users\jrodr\OneDrive\Escritorio\progravanzada\labs\PlantasYHongos\PlantasYHongos\Jugador.cpp(5,8): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  PlantasYHongos.cpp
+  Generando código...
+  PlantasYHongos.vcxproj -> C:\Users\jrodr\OneDrive\Escritorio\progravanzada\labs\PlantasYHongos\x64\Debug\PlantasYHongos.exe
