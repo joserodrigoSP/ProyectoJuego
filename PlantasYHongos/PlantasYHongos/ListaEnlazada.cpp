@@ -1,0 +1,102 @@
+#include "ListaEnlazada.h"
+
+// Constructor de la lista enlazada
+ListaEnlazada::ListaEnlazada() : cabeza(nullptr) {}
+
+// Destructor de la lista enlazada para liberar memoria
+ListaEnlazada::~ListaEnlazada() {
+    Nodo* actual = cabeza;
+    while (actual != nullptr) {
+        Nodo* temp = actual;
+        actual = actual->siguiente;
+        if (temp->carta != nullptr) { // Verificación adicional
+            delete temp->carta; // Liberamos la memoria de la carta
+        }
+        delete temp; // Liberamos el nodo
+    }
+}
+
+// Método para agregar una carta al inicio de la lista
+void ListaEnlazada::agregar(Carta* carta) {
+    Nodo* nuevoNodo = new Nodo(carta);
+    if (cabeza == nullptr) {
+        cabeza = nuevoNodo;
+    }
+    else {
+        nuevoNodo->siguiente = cabeza;
+        cabeza = nuevoNodo;
+    }
+}
+
+// Método para mostrar todas las cartas en la lista
+void ListaEnlazada::mostrar() {
+    Nodo* actual = cabeza;
+    int cont = 0;
+    while (actual != nullptr) {
+        cout << cont << ") ";
+        try {
+            actual->carta->mostrarCarta(); // Llama al método mostrarCarta de cada carta
+        }
+        catch (const std::exception& e) {
+            cout << "Error mostrando carta: " << e.what() << endl;
+        }
+        actual = actual->siguiente;
+        cont++; // Incrementa el contador en cada iteración
+    }
+}
+
+
+
+void ListaEnlazada::mostrarPlantas(vector<Carta*>& aux) {
+    int contador = 0;  // Inicializamos en 1 para numerar desde 1
+    Nodo* actual = cabeza;
+
+    while (actual != nullptr) {
+        if (actual->carta->getTipo() == "planta") {
+            aux.push_back(actual->carta);  // Agregamos la carta al vector
+            // Imprimimos la carta enumerada
+            cout << contador+1 << ". " << actual->carta->getTipo() + " " + actual->carta->getDetalle() << endl;
+            contador++;
+        }
+        actual = actual->siguiente;
+    }
+   
+}
+
+
+// Método para verificar si la lista está vacía
+bool ListaEnlazada::vacia() {
+    return cabeza == nullptr;
+}
+
+int ListaEnlazada::contarElementos() {
+    int contador = 0;
+    Nodo* actual = cabeza;
+    while (actual != nullptr) {
+        contador++;
+        actual = actual->siguiente;
+    }
+    return contador;
+}
+
+void ListaEnlazada::recorrerHasta(int indiceObjetivo) {
+    if (indiceObjetivo < 0) {
+        cout << "Índice inválido. No se puede aplicar fungicida." << endl;
+        return;
+    }
+
+    Nodo* actual = cabeza;
+    int contador = 0;
+
+    while (actual != nullptr && contador < indiceObjetivo) {
+        actual = actual->siguiente;
+        contador++;
+    }
+
+    if (actual != nullptr) {
+        actual->carta->aplicarFungicida();
+    }
+    else {
+        cout << "Índice fuera de rango. No se puede aplicar fungicida." << std::endl;
+    }
+}

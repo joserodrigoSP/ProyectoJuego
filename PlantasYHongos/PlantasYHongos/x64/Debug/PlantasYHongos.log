@@ -1,0 +1,14 @@
+﻿  Carta.cpp
+  Fungicida.cpp
+  Hongo.cpp
+  Juego.cpp
+  Jugador.cpp
+C:\Users\jrodr\OneDrive\Escritorio\progravanzada\labs\PlantasYHongos\PlantasYHongos\Jugador.cpp(5,8): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\jrodr\OneDrive\Escritorio\progravanzada\labs\PlantasYHongos\PlantasYHongos\Jugador.cpp(95,20): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  ListaEnlazada.cpp
+  PilaCartas.cpp
+  Planta.cpp
+  PlantasYHongos.cpp
+  Truco.cpp
+  Generando código...
+  PlantasYHongos.vcxproj -> C:\Users\jrodr\OneDrive\Escritorio\progravanzada\labs\PlantasYHongos\x64\Debug\PlantasYHongos.exe
